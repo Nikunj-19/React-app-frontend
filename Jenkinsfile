@@ -5,13 +5,14 @@ pipeline {
         nodejs "NodeJS_18"  // Make sure you configured NodeJS in Jenkins Global Tool Configuration
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'git@github.com:Nikunj-19/React-app-frontend.git'
-            }
-        }
+  stage('Checkout') {
+    steps {
+        git branch: 'main',
+            credentialsId: 'git',
+            url: 'git@github.com:Nikunj-19/React-app-frontend.git'
+    }
+}
+
 
         stage('Install Dependencies') {
             steps {
